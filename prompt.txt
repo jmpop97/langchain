@@ -732,4 +732,4 @@ function fnSNS(snsName) {
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 </body>
-</html>;
+</html>; 선예매 회당 몇매할 수 있어? 숫자로 알려줘.
