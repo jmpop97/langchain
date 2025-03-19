@@ -1,5 +1,6 @@
 import ollama
 import time
+import json
 
 
 def sample():
@@ -8,6 +9,12 @@ def sample():
         # 결과 사이 경계선
     lines = f.read()
     return lines
+
+def saveJson(name,jsondata):
+    # json 파일로 저장
+    with open(f'./{name}.json', 'w') as f : 
+        json.dump(jsondata, f, indent=4)
+
 def send(model,content):
     prompt=[
         {
@@ -23,8 +30,16 @@ def send(model,content):
 
     print("end - ", time.strftime('%Y.%m.%d - %H:%M:%S'))
     end_time = time.time()
+    elapsed_time=end_time - start_time
+    print("elapsed time - ", elapsed_time, "seconds")
+    jsonData=        {
+            "start_time":start_time,
+            "end_time":end_time,
+            "elapsed_time":elapsed_time,
+            "response":response['message']['content']
+        }
+    return jsonData
 
-    print("elapsed time - ", end_time - start_time, "seconds")
 
 models=[
         'gemma3',
@@ -41,6 +56,12 @@ models=[
         'starling-lm',
         'solar'
         ]
+err=[]
 for model in models:
-    text=sample()
-    send(model,text)
+    try:
+        text=sample()
+        jsonData=send(model,text)
+        saveJson(model,jsonData)
+    except:
+        err.append(model)
+print(err)
