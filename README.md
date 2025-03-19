@@ -26,5 +26,8 @@ ollama pull codellam
 ollama pull neural-chat
 ollama pull starling-lm
 ollama pull solar
+
+#실행
+python main.py
 </code>
 </pre>
