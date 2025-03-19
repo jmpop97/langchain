@@ -4,7 +4,7 @@
 
 # start
 [ollama설치 ](https://ollama.com/)
-terminal
+## terminal
 <pre>
 <code>
 #python 준비
