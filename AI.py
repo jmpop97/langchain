@@ -125,4 +125,3 @@ def llm():
         if i<3:
             print(f"[{i}] 유사도: {similarity[idx]:.3f} | {testList[idx]}")
             print()
-llm()
