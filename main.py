@@ -64,4 +64,5 @@ for model in models:
         saveJson(model,jsonData)
     except:
         err.append(model)
+saveJson("err",err)
 print(err)
