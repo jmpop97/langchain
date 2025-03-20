@@ -12,7 +12,7 @@ def sample():
 
 def saveJson(name,jsondata):
     # json 파일로 저장
-    with open(f'./{name}.json', 'w') as f : 
+    with open(f'./results/{name}.json', 'w') as f : 
         json.dump(jsondata, f, indent=4)
 
 def send(model,content):
@@ -57,7 +57,7 @@ models=[
         'solar'
         ]
 err=[]
-for model in models:
+for model in [models]:
     try:
         text=sample()
         jsonData=send(model,text)
